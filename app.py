@@ -1,14 +1,13 @@
 import os
 from flask import Flask, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from models import setup_db , Coffeeshops, Visited
+from models import setup_db, Coffeeshops, Visited
 from flask_cors import CORS
 from auth import requires_auth
 
 
-
-
 app = Flask(__name__)
+
 setup_db(app)
 
 
@@ -32,7 +31,7 @@ def visited(jwt):
 def add_visited(jwt):
     try:
         Visited(name=request.get_json()['name'],
-             recommended=request.get_json()['recommended']).insert()
+        recommended=request.get_json()['recommended']).insert()
         return jsonify({'done': 'yes'}), 201
     except Exception:
         return jsonify({'done': 'no'}), 500
@@ -41,7 +40,7 @@ def add_visited(jwt):
 @requires_auth('get:name')
 def all(jwt):
     coffeeshop = Coffeeshops.query.all()
-    formatted_coffeeshops = [coffeeshops.format() for coffeeshops in coffeeshop]
+    formatted_coffeeshops=[coffeeshops.format() for coffeeshops in coffeeshop]
     print(formatted_coffeeshops)
     return jsonify({'coffeeshop': formatted_coffeeshops})
 
@@ -51,8 +50,8 @@ def all(jwt):
 def add_coffeeshops(jwt):
     try:
         Coffeeshops(name=request.get_json()['name'],
-             rate=request.get_json()['rate'],
-             recommended=request.get_json()['recommended']).insert()
+        rate=request.get_json()['rate'],
+        recommended=request.get_json()['recommended']).insert()
         return jsonify({'done': 'yes'}), 201
     except Exception:
         return jsonify({'done': 'no'}), 500
@@ -114,3 +113,4 @@ def delete_coffeeshops(jwt, id):
     @app.errorhandler(500)
     def server_error(error):
         return jsonify({'error': 'server error'}), 500
+        

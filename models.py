@@ -5,26 +5,18 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 
 
-database_path = """postgres://abyprsksvzqemp:6d884d9f58a50090d22ff74893b4b401b0ab4504d2431b0b399ca9a6e37ed0f6@ec2-54-234-28-165.compute-1.amazonaws.com:5432/dbaq9joi9ijb85"""
+database_path = """postgres://fuslttnjinadwk:df83c0b314934b2f64e6de8ec6f5730f7e3fb39da0d3c7fc83165c20d8ab3c76@ec2-3-215-83-17.compute-1.amazonaws.com:5432/ddevls1ouhbli0"""
 
 db = SQLAlchemy()
 
-'''
-setup_db(app)
-    binds a flask application and a SQLAlchemy service
-'''
-def setup_db(app):
+
+def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
     db.create_all()
-'''
-db_drop_and_create_all()
-    drops the database tables and starts fresh
-    can be used to initialize a clean database
-    !!NOTE you can change the database_filename variable to have multiple verisons of a database
-'''
+
 
 
 class Coffeeshops(db.Model):

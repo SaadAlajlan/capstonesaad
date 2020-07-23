@@ -1,9 +1,12 @@
-import os , unittest, json
+import os
+import unittest
+import json
 from flask_sqlalchemy import SQLAlchemy
 
 from app import app
 from models import setup_db, Coffeeshops, Visited
 import os
+
 
 
 class Capstone(unittest.TestCase):
@@ -12,7 +15,7 @@ class Capstone(unittest.TestCase):
         self.app = app
         self.client = self.app.test_client
         self.database_name = "capstonesaad"
-        self.database_path = """postgres://postgres:1@localhost:
+        self.database_path = """postgres://postgres:2212@localhost:
         5432/capstonesaad"""
         setup_db(self.app, self.database_path)
 
