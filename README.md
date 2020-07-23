@@ -92,14 +92,14 @@ Request Arguments: name: String, rate: String and recommended: String
 Return: A dictionary with one key "done" if "yes" so the coffeeshop has been added
 { "done": "yes" }
 
-'/coffeeshops/<id>' {patch}
+'/coffeeshops/id:integer' {patch}
 
 Fetches A dictionary
 Request Arguments: name: String, rate: String, recommended: String and URL argument id: Integer
 Return: A dictionary with one key "done" if "yes" so the coffee shop has been modified
 { "done": "yes" }
 
-'/coffeeshops/<id>' {delete}
+'/coffeeshops/id:integer' {delete}
 
 Fetches A dictionary
 Request Arguments: URL argument id: Integer
