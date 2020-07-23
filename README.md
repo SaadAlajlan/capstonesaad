@@ -79,6 +79,7 @@ admin   "permissions": [
 
 
 '/coffeeshops' {get}
+
 Fetches a dictionary of array coffeeshop
 Request Arguments: None
 Return: An array of object coffeeshops which contains id: integer key, name: String represent the name of the coffee shop, rate: String represent the rating of the coffee shop, and recommended: String represent a recommended product for the coffee shop
