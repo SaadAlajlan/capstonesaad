@@ -14,6 +14,9 @@ setup_db(app)
 
 
 
+@app.route('/', methods=['POST', 'GET'])
+def health():
+    return jsonify("Healthy")
 
 @app.route('/visited', methods=['GET'])
 @requires_auth('get:visited')
@@ -35,7 +38,7 @@ def add_visited(jwt):
         return jsonify({'done': 'no'}), 500
 
 @app.route('/coffeeshops', methods=['GET'])
-# @requires_auth('get:name')
+@requires_auth('get:name')
 def all(jwt):
     coffeeshop = Coffeeshops.query.all()
     formatted_coffeeshops = [coffeeshops.format() for coffeeshops in coffeeshop]
