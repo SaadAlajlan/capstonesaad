@@ -1,27 +1,21 @@
-import json, os
+import json
+import sys
 from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
+import os
 
 
+AUTH0_DOMAIN = 'fsnd-saad.us.auth0.com'
+ALGORITHMS = ['RS256']
+API_AUDIENCE = 'Coffee taster'
 
-AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
-ALGORITHMS = os.environ.get('ALGORITHMS')
-API_AUDIENCE = os.environ.get('API_AUDIENCE')
 
-## AuthError Exception
-'''
-AuthError Exception
-A standardized way to communicate auth failure modes
-'''
 class AuthError(Exception):
     def __init__(self, error, status_code):
         self.error = error
         self.status_code = status_code
-
-
-## Auth Header
 
 
 def get_token_auth_header():
@@ -111,7 +105,7 @@ def verify_decode_jwt(token):
         except jwt.JWTClaimsError:
             raise AuthError({
                 'code': 'invalid_claims',
-                'description': 'Incorrect claims. Please, check the audience and issuer.'
+                'description': 'Incorrect claims'
             }, 401)
         except Exception:
             raise AuthError({
@@ -138,3 +132,5 @@ def requires_auth(permission=''):
 
         return wrapper
     return requires_auth_decorator
+
+    # https://fsnd-saad.us.auth0.com/authorize?audience=Coffee%20taster&response_type=token&client_id=BBZFFxFdBPDUvnwoZ9Mfa0bLroVfIA5J&redirect_uri=https://127.0.0.1:8100/login-results
