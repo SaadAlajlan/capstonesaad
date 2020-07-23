@@ -123,5 +123,5 @@ Return: A dictionary with one key "done" if "yes" so the coffeeshop have been ad
 Testing
 
 to run the tests, you can by running the command
--python test_app.py
+-python test.py
 
