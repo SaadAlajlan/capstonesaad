@@ -78,49 +78,50 @@ admin   "permissions": [
 
 
 
-'/coffeeshops' {get}
+#### '/coffeeshops' {get}
 
 Fetches a dictionary of array coffeeshop
 Request Arguments: None
 Return: An array of object coffeeshops which contains id: integer key, name: String represent the name of the coffee shop, rate: String represent the rating of the coffee shop, and recommended: String represent a recommended product for the coffee shop
 { coffeeshop:[ { id:1, name: "BlueBottle", rate: "5", recommended: "cortado" }... ] }
 
-'/coffeeshops' {post}
+#### '/coffeeshops' {post}
 
 Fetches A dictionary
 Request Arguments: name: String, rate: String and recommended: String
 Return: A dictionary with one key "done" if "yes" so the coffeeshop has been added
 { "done": "yes" }
 
-'/coffeeshops/id:integer' {patch}
+#### '/coffeeshops/id:integer' {patch}
 
 Fetches A dictionary
 Request Arguments: name: String, rate: String, recommended: String and URL argument id: Integer
 Return: A dictionary with one key "done" if "yes" so the coffee shop has been modified
 { "done": "yes" }
 
-'/coffeeshops/id:integer' {delete}
+#### '/coffeeshops/id:integer' {delete}
 
 Fetches A dictionary
 Request Arguments: URL argument id: Integer
 Return: A dictionary with one key "done" if "yes" so the coffeeshop has been deleted
 { "done": "yes" }
 
-'/visited' {get}
+#### '/visited' {get}
 
 Fetches a dictionary of array visitedar
 Request Arguments: None
 Return: An array of object coffeeshop which contains id: integer key, name: String represent the name of the coffee shop, and recommended: String represent a recommended product of the coffee shop
 { visitedar:[ { id:1, name: "blue bottle", recommended: "flat white" }... ] }
 
-'/visited' {post}
+#### '/visited' {post}
 
 Fetches A dictionary
 Request Arguments: name: String, recommended: String
 Return: A dictionary with one key "done" if "yes" so the coffeeshop have been added
 { "done": "yes" }
 
-Testing
+
+###Testing
 
 to run the tests, you can by running the command
 -python test.py
