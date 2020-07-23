@@ -4,8 +4,8 @@ https://capstonesaad.herokuapp.com/
 
 ### About the project 
 
-This api allows you to add coffee shops to visit with there rating and thier recommended product.
-and you can check the once that you visited already
+This api allows you to add coffee shops to visit with the rating of the coffee shop and the recommended product.
+and you can check the coffee shops that you visited and check the recommended product
 
 ### Installing Dependencies
 
